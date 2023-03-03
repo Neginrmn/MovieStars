@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+
+@for(int i = 0; i < Model.movieTitles.Count; i++) {
+    <form method="POST" asp-page-handler="Details">
+        <div class="movieCard">
+            <div class="movieCardTop" 
+                style="background: url(@Model.posterURLs[i]); background-size: cover;">
+                <input class="movieButton" type="submit" name="movieID" value="@Model.movieIDs[i]">
+            </div>
+            <div class="movieCardBottom">
+                <p>@Model.overviews[i]</p>
+            </div>
+        </div>
+    </form>
+}

@@ -1,0 +1,208 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* font-family: 'Six Caps', sans-serif; */
+  background: #333;
+}
+header {
+  
+  width: 100%;
+  height: 350px;
+  background: url('../images/headerBkg.jpg');
+}
+#logo {
+  width: 250px;
+  margin: 50px;
+}
+#searchDiv {
+  width: 60%;
+  margin-top: -60px;
+  margin-left: 20%;
+  position: relative;
+  background: #f00;
+}
+#searchBox {
+  width: 80%;
+  float: left;
+}
+  #searchBox > input {
+    width: 100%;
+    font-size: 2.2em;
+    font-weight: 700;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+    padding-left: 33px;
+  }
+#searchButton {
+  width: 20%;
+  float: left;
+}
+  #searchButton > input {
+    width: 100%;
+    font-size: 2.2em;
+    font-weight: 700;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    background: #96d796;
+  }
+/* MovieCard Styles */
+.movieCard {
+  width: 280px;
+  min-height: 520px;
+  border-radius: 25px;
+  margin: 15px;
+  vertical-align: top;
+  float: left;
+}
+  .movieCardTop {
+    width: 100%;
+    height: 380px;
+    border-bottom: 1px solid #000;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  	.movieButton {
+		width: 100%;
+		height: 380px;
+		cursor: pointer;
+		opacity: 0;
+	}
+  .movieCardBottom {
+    width: 100%;
+
+    background: #fff;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 10px 25px;
+  }
+    .movieCardBottom > h3 {
+      background: #333;
+      color: #fff;
+      font-weight: 700;
+      padding: 5px 15px;
+      border-radius: 4px;
+    }
+
+/* Movie Page Styles */
+#movieDetailsDiv {
+	width: 100%;
+	height: 800px;
+  margin-top: -15px;
+  overflow: hidden;
+}
+#movieDetailsDivLeft {
+  width: calc(100% - 300px);
+  padding: 25px 100px;
+  height: 800px;
+  float: left;
+  color: #fff;
+  font-size: 1.4em;
+}
+  #movieStats {
+    width: 100%;
+    height: 480px;
+  }
+    #moviePoster {
+      width: 300px;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      float: left;
+    }
+    #stats {
+      width: 360px;
+      height: 480px;
+      padding: 10px 25px;
+      float: left;
+    }
+    .genres {
+      margin: 0 7px;
+      font-size: .8em;
+    }
+#movieDetailsDivRight {
+  width: 300px;
+  height: 800px;
+  float: left;
+  overflow-y: scroll;
+}
+  .castDiv {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    border-radius: 50%;
+    border: 3px solid #fff;
+  }
+  .castButton {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  .castLabel {
+    width: 200px;
+    padding: 2px 5px;
+    position: relative;
+    z-index: 3;
+    background: #444;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 1;
+    top: 160px;
+    border-radius: 16px;
+    border: 3px solid #fff;
+  }
+
+  /* VIDEO STYLES */
+  #detailsLeft {
+    width: calc(100% - 740px);
+    padding-right: 75px;
+    height: 800px;
+    float: left;
+  }
+  #videoDiv {
+    width: 740px;
+    height: 420px;
+    float: left;
+    padding-top: 30px;
+  }
+  #videoSelector {
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 8px;
+    max-width: 740px;
+    width: 740px;
+    padding: 5px 7px;
+    background: #444;
+    border: 3px solid #fff;
+    color: #fff;
+  }
+  #youtubePlayer {
+    width: 740px;
+    height: 420px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    position: relative;
+    z-index: 3;
+    margin-top: 10px;
+  }
+  footer {
+    width: 100%;
+    height: 150px;
+    font-size: 1.1em;
+    font-weight: 600;
+    clear: both;
+    padding: 25px 50px;
+    background: #fff;
+    text-align: right;
+  }
+    #tmdbLogo {
+      width: 300px;
+      margin-left: 25px;
+    }

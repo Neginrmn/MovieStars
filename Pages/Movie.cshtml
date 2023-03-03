@@ -1,0 +1,60 @@
+@page
+@model MovieModel
+@* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet"> *@
+<div id="movieDetailsDiv" style="background: radial-gradient(rgba(15, 14, 22, 0.67), #100e17), url(@Model.backdrop_path); background-size: cover; background-position: center;">
+    <div id="movieDetailsDivLeft">
+        <div id="detailsLeft">
+            <h1>@Model.title</h1>
+            <div id="movieStats">
+                <img id="moviePoster" src="@Model.poster_path" alt="@Model.title">
+                <div id="stats">
+                    <h3>Released: @Model.yearReleased</h3>
+                    <h3>Revenue: @Model.revenue</h3>
+                    <p>Tagline: @Model.tagline</p>
+                    <h3>Genres:
+                        @for(int i = 0; i < Model.genres.Count; i++) {
+                            if(i < Model.genres.Count - 1) {
+                                <span class="genres">@Model.genres[i], </span>
+                            }
+                            else {
+                                <span class="genres">@Model.genres[i].</span>
+                            }   
+                        }
+                    </h3>
+                </div>
+            </div>
+            <p>@Model.overview</p>
+        </div>
+        <div id="videoDiv">
+            @if(Model.videoNames.Count >= 1) {
+                <select id="videoSelector" name="videoKey" 
+                    onchange="switchVideo(this.value)"
+                    title="Select a video to watch">
+                    @for(int i = 0; i < Model.videoKeys.Count; i++) {
+                        <option value="@Model.videoKeys[i]">
+                            @Model.videoNames[i]
+                        </option>
+                    }
+                </select>
+                <iframe id="youtubePlayer" title="youtubePlayer"
+                    src="https://www.youtube.com/embed/@Model.videoKeys[0]?rel=0&controls=1"
+                    frameborder="0" allowfullscreen autoplay="false">
+                </iframe>
+            }
+        </div>
+    </div>
+    <div id="movieDetailsDivRight">
+        @for(int i = 0; i < Model.castIMGs.Count; i++) {
+            <form method="POST" asp-page-handler="GetActor">
+                <div class="castDiv" style="background: url(@Model.castIMGs[i]); background-size: cover; background-position: center;">
+                    <div class="castLabel">
+                        @Model.castNames[i]
+                    </div>
+                    <input class="castButton" type="submit" name="actorID" value="@Model.castIDs[i]">
+                </div>
+            </form>
+        }
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@page 
+@model ActorModel
+<div id="bio">
+  <h3>Name: @Model.actorName</h3>
+  <h3>Date of birth: @Model.actorBirthyear</h3>
+  <h3>Place of birth: @Model.actorBirthplace</h3>
+  <h3>Known For: @Model.knownFor</h3>
+  <h3>Bio: @Model.actorBio</h3>
+</div>
+<img id="moviePoster" src="@Model.profile_path" >
+
+
+@{
+    DateTime actorBirthDate = DateTime.Parse(Model.actorBirthyear);
+    int actorAge = DateTime.Now.Year - actorBirthDate.Year;
+    if (DateTime.Now.DayOfYear < actorBirthDate.DayOfYear)
+    {
+        actorAge -= 1;
+    }
+}
+
+<h3>Age: @actorAge</h3>
+
+<div id="moviePoster">
+    @for (int i = 0; i < Model.imageGallery.Count; i++)
+    {
+                    <form method="POST" asp-page-handler="GetActorProfile">
+                        <div class="castDiv" style="background: url(@Model.imageGallery[i]); background-size: cover; background-position: center;">
+
+                        </div>
+                    </form>
+    }
+
+</div> 
+<div>
+    @for (int i = 0; i < Model.knownForGallery.Count; i++)
+    {
+         <div class="castDiv", style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.87)), url(@Model.knownForGallery[i]); background-size: cover; background-position: center;">
+
+         </div>
+    }
+</div> 
+

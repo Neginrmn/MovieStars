@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieStars</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <a asp-page="/Index">
+            <img id="logo" src="/images/logo.png" alt="MovieStars Logo">
+        </a>
+        <div id="searchDiv">
+            <form id="searchForm" method="POST" asp-page-handler="Search" asp-page="/Index">
+                <div id="searchBox">
+                    <input id="searchTextbox" type="text" name="search" placeholder="type the movie name here...">
+                </div>
+                <div id="searchButton">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div>
+            &copy; 2023 - MovieStars - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <img id="tmdbLogo" src="/images/tmdbLogo.svg" alt="TMDB Logo">
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
